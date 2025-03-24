@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <header class="h-screen w-screen flex justify-center items-center">
+        
+        <div class="popup h-[400px] w-[800px] rounded-2xl shadow-black shadow-2xl flex justify-center items-center relative">
+            <i class="dot bi bi-three-dots text-2xl text-white absolute top-2 right-2 z-10 cursor-pointer active:scale-95"></i>
+            <img id="cityImg" src="imgs/madrid.jpg" class="absolute h-full w-full">
+            <div class="hidden links absolute top-12 right-0 h-fit w-6/12 flex justify-end items-center z-10 pr-2">
+                <a href="#" class="first text-white hover:text-green-500 h-12 text-4xl w-full flex justify-end items-center">Madrid</a>
+                <a href="#" class="second text-white hover:text-green-500 h-12 text-4xl w-full flex justify-end items-center">Barcelona</a>
+                <a href="#" class="third text-white hover:text-green-500 h-12 text-4xl w-full flex justify-end items-center">Malaga</a>
+                
+            </div>>
+         </div>
+    </header>
+
+    <script>
+
+        $(document).ready(function(){
+            $(".dot").click(function(){
+                $(".links").toggle();
+            });
+        });
+
+        $(".first").click(function(){
+            $("img").attr("src", "imgs/madrid.jpg");
+            $(".links").toggle();
+        });
+
+        $(".second").click(function(){
+            $("img").attr("src", "imgs/barcelona.jpg");
+            $(".links").toggle();
+          
+        });
+
+        $(".third").click(function(){
+            $("img").attr("src", "imgs/malaga.jpg");
+            $(".links").toggle();
+        });
+
+        $("header").css("background-image", "url('imgs/madrid.jpg')");
+        $("header").css("background-size", "100% 100%");
+        $("header").css("background-repeat", "no-repeat");
+
+        $("#cityImg").click(function(){
+            let currentImg = $(this).attr("src");
+            $("header").css("background-image", "url('"+currentImg+"')");
+        });
+
+     
+    </script>
+    
+</body>
+</html>
